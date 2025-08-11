@@ -10,12 +10,19 @@ const App = () => {
         // 상품은 배열객체로 이루어져 있습니다.
         // 카트에 상품이 8개 이상이면 alert를 띄워
         // 더 이상 상품을 추가할 수 없다고 알려주세요.
+
+        // product : []
+        if (cart.length > 8) {
+            alert('장바구니가 가득 찼습니다. 더 이상 상품을 추가할 수 없습니다.');
+            return;
+        }
+        setCart((prev) => [...prev, product]);
     };
 
     return (
         <>
             <div className="container">
-                <ProductList addToCart={addToCart} />
+                <ProductList prdList={cart} addToCart={addToCart} />
             </div>
             <Cart cart={cart} setCart={setCart} />
         </>
